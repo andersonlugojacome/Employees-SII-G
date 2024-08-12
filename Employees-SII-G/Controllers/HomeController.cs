@@ -34,7 +34,15 @@ public class HomeController : Controller
             else
             {
                 var employee = await _employeeService.GetEmployeeByIdAsync(int.Parse(employeeId));
-                employees = employee != null ? new List<Employees> { employee } : new List<Employees>();
+
+                if (employee == null)
+                {
+                    errorMessage = "Employee not found."; // Mensaje si el empleado no se encuentra
+                }
+                else
+                {
+                    employees = new List<Employees> { employee };
+                }
             }
 
             foreach (var employee in employees)
@@ -52,4 +60,5 @@ public class HomeController : Controller
 
         return View(employees);
     }
+
 }

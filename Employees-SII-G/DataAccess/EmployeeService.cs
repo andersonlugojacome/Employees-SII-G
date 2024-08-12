@@ -39,18 +39,34 @@ public class EmployeeService
         }
         catch (HttpRequestException ex)
         {
-            // Log the exception or handle it as needed
+            // Log the exception
             throw new InvalidOperationException("Error connecting to the API: " + ex.Message, ex);
         }
     }
-    public async Task<Employees> GetEmployeeByIdAsync(int id)
+    public async Task<Employees?> GetEmployeeByIdAsync(int id)
     {
-        var response = await _httpClient.GetAsync($"https://dummy.restapiexample.com/api/v1/employees/{id}");
-        response.EnsureSuccessStatusCode();
+        try
+        {
+            var response = await _httpClient.GetAsync($"https://dummy.restapiexample.com/api/v1/employee/{id}");
 
-        var jsonString = await response.Content.ReadAsStringAsync();
-        var apiResponse = JsonSerializer.Deserialize<ApiResponse<Employees>>(jsonString);
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                // Retornar null si el empleado no es encontrado
+                return null;
+            }
 
-        return apiResponse?.Data ?? new Employees();
+            response.EnsureSuccessStatusCode();
+
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var apiResponse = JsonSerializer.Deserialize<ApiResponse<Employees>>(jsonString);
+
+            return apiResponse?.Data;
+        }
+        catch (HttpRequestException ex)
+        {
+            // Brack
+            throw new InvalidOperationException("Error connecting to the API: " + ex.Message, ex);
+        }
     }
+
 }

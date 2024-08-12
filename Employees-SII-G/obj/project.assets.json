@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII/Employees-SII-G/Employees-SII-G/Employees-SII-G.csproj",
+      "projectUniqueName": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII-G/Employees-SII-G/Employees-SII-G.csproj",
       "projectName": "Employees-SII-G",
-      "projectPath": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII/Employees-SII-G/Employees-SII-G/Employees-SII-G.csproj",
+      "projectPath": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII-G/Employees-SII-G/Employees-SII-G.csproj",
       "packagesPath": "/Users/andersonlugojacome/.nuget/packages/",
-      "outputPath": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII/Employees-SII-G/Employees-SII-G/obj/",
+      "outputPath": "/Users/andersonlugojacome/Library/CloudStorage/SynologyDrive-demand/works/GitHub/Employees-SII-G/Employees-SII-G/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/andersonlugojacome/.nuget/NuGet/NuGet.Config"
