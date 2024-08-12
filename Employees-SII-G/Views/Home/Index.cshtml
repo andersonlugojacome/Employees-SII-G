@@ -1,0 +1,62 @@
+﻿@model List<Employees_SII_G.Models.Employees>
+
+@{
+    ViewData["Title"] = "Home Page";
+    var errorMessage = ViewData["ErrorMessage"] as string;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Employees SII Group</h1>
+</div>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @errorMessage
+    </div>
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="get" asp-controller="Home" asp-action="Index">
+                <div class="form-group">
+                    <label for="employeeId">Enter Employee ID (optional):</label>
+                    <input type="text" class="form-control" id="employeeId" name="employeeId" placeholder="Employee ID" value="@ViewData["EmployeeId"]" />
+                </div>
+                <button type="submit" class="btn btn-primary">Search Employee</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Annual Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                <td>@employee.Id</td>
+                                <td>@employee.Name</td>
+                                <td>@employee.Salary</td>
+                                <td>@employee.AnnualSalary</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
