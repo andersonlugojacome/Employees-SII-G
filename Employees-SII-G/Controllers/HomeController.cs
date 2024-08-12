@@ -37,7 +37,7 @@ public class HomeController : Controller
 
                 if (employee == null)
                 {
-                    errorMessage = "Employee not found."; // Mensaje si el empleado no se encuentra
+                    errorMessage = "Employee not found."; 
                 }
                 else
                 {
@@ -52,11 +52,11 @@ public class HomeController : Controller
         }
         catch (InvalidOperationException ex)
         {
-            errorMessage = ex.Message; // Captura el mensaje de error para mostrar en la vista
+            errorMessage = ex.Message; 
         }
 
         ViewData["EmployeeId"] = employeeId;
-        ViewData["ErrorMessage"] = errorMessage; // Pasar el mensaje de error a la vista
+        ViewData["ErrorMessage"] = errorMessage; 
 
         return View(employees);
     }
